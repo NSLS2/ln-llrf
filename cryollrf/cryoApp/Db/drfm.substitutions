@@ -1,0 +1,184 @@
+# Undefined macros
+#  P - Record name prefix
+#   MO amplitude calibration
+#  MOSLO - slope (default provided)
+#  MOOFF - offset (default provided)
+
+file "tbl-write-bo.template"
+{pattern
+{NAME, RBNAME, TBL, PARAM, PINI, ZNAM, ONAM}
+{"\$(P)Connect-Sel", "\$(P)Connect-RB","\$(TBL)", "Connect", "RUNNING", "Disconnect", "Connect"}
+}
+
+# Momentary commands
+file "tbl-write-bo.template"
+{pattern
+{NAME, RBNAME, TBL, PARAM, PASS0, PINI, ZNAM, ONAM}
+{"\$(P)Rst-Cmd", "\$(P)Rst-RB", "\$(TBL)", "Reset", "", "NO", "Run", "Reset"}
+{"\$(P)Reboot-Cmd", "\$(P)Reboot-RB", "\$(TBL)", "Reboot", "", "NO", "Run", "Reboot"}
+{"\$(P)Rst:FB-Cmd", "\$(P)Rst:FB-RB", "\$(TBL)", "AFF Reset", "", "NO", "Run", "Reset"}
+{"\$(P)WriteTbl-Cmd", "\$(P)WriteTbl-RB", "\$(TBL)", "WriteTable", "", "NO", "Idle", "Write"}
+{"\$(P)Commit-Cmd", "\$(P)Commit-RB", "\$(TBL)", "Commit", "", "NO", "Commit", "Commit"}
+}
+
+# Binary switches
+file "tbl-write-bo.template"
+{pattern
+{NAME, RBNAME, TBL, PARAM, ZNAM, ONAM}
+{"\$(P)Trig:Edge-Sel", "\$(P)Trig:Edge-RB", "\$(TBL)", "Trig Edge", "Rise", "Fall"}
+{"\$(P)Ena:FB-SP", "\$(P)Ena:FB-RB", "\$(TBL)", "AFF Loop", "Opened", "Closed"}
+{"\$(P)Model-Sel", "\$(P)Model-RB", "\$(TBL)", "Model", "500 MHz", "3 GHz"}
+{"\$(P)Commit-Cmd", "\$(P)Commit-RB", "\$(TBL)", "Commit", "Commit", "Commit"}
+}
+
+file "tbl-read-bi.template"
+{pattern
+{NAME, TBL, PARAM, ZNAM, ZSV, ONAM}
+{"\$(P)Connect-Sts", "\$(TBL)", "Connected", "Disconnected", "MAJOR", "Connected"}
+{"\$(P)Err-Sts", "\$(TBL)", "Error Summery", "Error", "MAJOR", "OK"}
+{"\$(P)IntrLock-Sts", "\$(TBL)", "Interlock", "Trip", "MAJOR", "OK"}
+{"\$(P)Stab:Amp-Sts", "\$(TBL)", "Stab Amp Status", "Out of Range", "MAJOR", "OK"}
+{"\$(P)Stab:Pha-Sts", "\$(TBL)", "Stab Pha Status", "Out of Range", "MAJOR", "OK"}
+{"\$(P)Trip:MO-Sts", "\$(TBL)", "MO Status", "Trip", "MAJOR", "OK"}
+{"\$(P)Trip:MOClk-Sts", "\$(TBL)", "MO Clock Status", "Trip", "MAJOR", "OK"}
+{"\$(P)T:Warn-Sts", "\$(TBL)", "Temp Warn Status", "Too High", "MINOR", "OK"}
+{"\$(P)T:Err-Sts", "\$(TBL)", "Temp Err Status", "Trip", "MAJOR", "OK"}
+{"\$(P)Ena:FB-Sts", "\$(TBL)", "AFF Loop Status", "Opened", "NO_ALARM", "Closed"}
+}
+
+file "tbl-read-stringin.template"
+{pattern
+{NAME, TBL, PARAM}
+{"\$(P)Message-I", "\$(TBL)", "Message"}
+}
+
+file "tbl-write-ao.template"
+{pattern
+{NAME, RBNAME, TBL, PARAM, EGU, ASLO, PREC,
+ ESLO, EOFF, LINR}
+{"\$(P)MO:AmpH-SP", "\$(P)MO:AmpH-RB", "\$(TBL)", "MO Amp High", "", "1.52587890625e-05", "4",
+ "\$(MOSLO=23.002)", "\$(MOOFF=-6.5973)", "LINEAR"}
+{"\$(P)MO:AmpL-SP", "\$(P)MO:AmpL-RB", "\$(TBL)", "MO Amp Low", "", "1.52587890625e-05", "4",
+ "\$(MOSLO=23.002)", "\$(MOOFF=-6.5973)", "LINEAR"}
+}
+
+file "tbl-write-ao.template"
+{pattern
+{NAME, RBNAME, TBL, PARAM, EGU, ASLO, PREC}
+{"\$(P)Stab:AmpH-SP", "\$(P)Stab:AmpH-RB", "\$(TBL)", "Stab Amp High", "", "1", "0"}
+{"\$(P)Stab:AmpL-SP", "\$(P)Stab:AmpL-RB", "\$(TBL)", "Stab Amp Low", "", "1", "0"}
+{"\$(P)BW:Amp-SP", "\$(P)BW:Amp-RB", "\$(TBL)", "Bandwidth Amp", "Hz", "1", "0"}
+{"\$(P)BW:Pha-SP", "\$(P)BW:Pha-RB", "\$(TBL)", "Bandwidth Phase", "Hz", "1", "0"}
+{"\$(P)T:Warn-SP", "\$(P)T:Warn-RB", "\$(TBL)", "Temp Warn", "C", "0.0625", "1"}
+{"\$(P)T:Lim-SP", "\$(P)T:Lim-RB", "\$(TBL)", "Temp Err", "C", "0.0625", "1"}
+# 0.0009765625 = 2^-10
+{"\$(P)Gain:Amp-SP", "\$(P)Gain:Amp-RB", "\$(TBL)", "Gain Amp", "", "0.0009765625", "2"}
+{"\$(P)Gain:Pha-SP", "\$(P)Gain:Pha-RB", "\$(TBL)", "Gain Phase", "", "0.0009765625", "3"}
+# 0.00137329101563 = 180/2^17
+{"\$(P)Probe:CalPha-SP", "\$(P)Probe:CalPha-RB", "\$(TBL)", "Probe Cal Phase", "deg", "0.00137329101563", "2"}
+{"\$(P)Stab:PhaH-SP", "\$(P)Stab:PhaH-RB", "\$(TBL)", "Stab Phase High", "deg", "0.00137329101563", "2"}
+{"\$(P)Stab:PhaL-SP", "\$(P)Stab:PhaL-RB", "\$(TBL)", "Stab Phase Low", "deg", "0.00137329101563", "2"}
+}
+
+file "tbl-write-longout.template"
+{pattern
+{NAME, RBNAME, TBL, PARAM}
+{"\$(P)Trig:Dly-SP", "\$(P)Trig:Dly-RB", "\$(TBL)", "Trig Delay"}
+{"\$(P)RunLen-SP", "\$(P)RunLen-RB", "\$(TBL)", "Pulse Time"}
+{"\$(P)Drv:OffI-SP", "\$(P)Drv:OffI-RB", "\$(TBL)", "DAC Offset I"}
+{"\$(P)Drv:OffQ-SP", "\$(P)Drv:OffQ-RB", "\$(TBL)", "DAC Offset Q"}
+{"\$(P)Lim:FB-SP", "\$(P)Lim:FB-RB", "\$(TBL)", "AFF Corr Lim"}
+{"\$(P)Time:Fill-SP", "\$(P)Time:Fill-RB", "\$(TBL)", "Fill Time"}
+{"\$(P)Stab:Dly-SP", "\$(P)Stab:Dly-RB", "\$(TBL)", "Stab Events Delay"}
+{"\$(P)Stab:Max-SP", "\$(P)Stab:Max-RB", "\$(TBL)", "Stab Events Max"}
+{"\$(P)Probe:AmpThres-SP", "\$(P)Probe:AmpThres-RB", "\$(TBL)", "Amp Thres for Probe Cal"}
+{"\$(P)LoopDly-SP", "\$(P)LoopDly-RB", "\$(TBL)", "Loop Time"}
+}
+
+file "tbl-read-ai.template"
+{pattern
+{NAME, TBL, PARAM,
+ EGU, ASLO, LOPR, HOPR, PREC,
+ DESC}
+{"\$(P)T-I", "\$(TBL)", "Temp",
+ "C", "0.0625", "40", "80", "1",
+ "Temp"}
+{"\$(P)MO:Pha-I", "\$(TBL)", "MO Phase",
+ "deg", "0.00137329101563", "-180", "180", "2",
+ "MO Phase"}
+}
+
+file "tbl-read-ai.template"
+{pattern
+{NAME, TBL, PARAM,
+ EGU, ASLO, LOPR, HOPR, PREC,
+ ESLO, EOFF, LINR,
+ DESC}
+ {"\$(P)MO:Amp-I", "\$(TBL)", "MO Amplitude",
+  "dBm", "1.52587890625e-05", "-2", "13", "3",
+  "\$(MOSLO=23.002)", "\$(MOOFF=-6.5973)", "LINEAR",
+  "MO Amplitude"}
+}
+
+file "tbl-read-ai.template"
+{pattern
+{NAME, TBL, TYPE, PARAM,
+ EGU, ASLO, LOPR, HOPR, PREC,
+ DESC}
+{"\$(P)Time:Cycle-I", "\$(TBL)", "Float64", "FW Loop Time",
+ "ms", "1", "0", "0", "2",
+ "FW Loop Time"}
+{"\$(P)Time:Period-I", "\$(TBL)", "Float64", "Update Period",
+ "ms", "1", "0", "0", "2",
+ "Update Period"}
+}
+
+file "tbl-read-longin.template"
+{pattern
+{NAME, TBL, PARAM, DESC}
+{"\$(P)Cnt:Rx-I", "\$(TBL)", "RX Count", "# Packets received"}
+{"\$(P)Cnt:Tx-I", "\$(TBL)", "TX Count", "# Packets sent"}
+{"\$(P)Cnt:FW-I", "\$(TBL)", "Comm Count", "Comm Count"}
+}
+
+file "tbl-write-waveform.template"
+{pattern
+{NAME, RBNAME, TBL, PARAM, FTVL, NELM, PREC, EGU, DESC}
+{"\$(P)Drv:Amp-SP", "\$(P)Drv:Amp-RB","\$(TBL)", "FF Amp", DOUBLE, 1000, 3, "", "FF Amp"}
+{"\$(P)Drv:Pha-SP", "\$(P)Drv:Pha-RB","\$(TBL)", "FF Phase", DOUBLE, 1000, 3, "deg", "FF Phase"}
+{"\$(P)Field:Amp-SP", "\$(P)Field:Amp-RB","\$(TBL)", "SP Amp", DOUBLE, 1000, 3, "", "SP Amp"}
+{"\$(P)Field:Pha-SP", "\$(P)Field:Pha-RB","\$(TBL)", "SP Phase", DOUBLE, 1000, 3, "deg", "SP Phase"}
+}
+
+file "tbl-read-waveform.template"
+{pattern
+{NAME, TBL, PARAM, FTVL, NELM, PREC, EGU, DESC}
+{"\$(P)Drv:Amp-I", "\$(TBL)", "FF Amp RB", DOUBLE, 1000, 3, "", "Drive Amplitude"}
+{"\$(P)Drv:Pha-I", "\$(TBL)", "FF Phase RB", DOUBLE, 1000, 3, "deg", "Drive Phase"}
+{"\$(P)Field:Amp-I", "\$(TBL)", "SP Amp RB", DOUBLE, 1000, 3, "", "Probe Amplitude"}
+{"\$(P)Field:Pha-I", "\$(TBL)", "SP Phase RB", DOUBLE, 1000, 3, "deg", "Probe Phase"}
+{"\$(P)T:DAC-I", "\$(TBL)", "Time", DOUBLE, 1000, 3, "us", "Time"}
+{"\$(P)T:Scope-I", "\$(TBL)", "Time", DOUBLE, 1000, 3, "us", "Time"}
+}
+
+file "extra.template"
+{pattern {P} {"\$(P)"}}
+
+
+file "wavegen.db"
+{
+{ P=\$(P)Drv:,TIME=\$(P)T:DAC-I,ADRVH=\$(ADRVH),IDRVH=\$(IDRVH),IDRVL=\$(IDRVL),JDRVH=\$(JDRVH),JDRVL=\$(JDRVL)}
+{ P=\$(P)Field:,TIME=\$(P)T:DAC-I,ADRVH=\$(ADRVH),IDRVH=\$(IDRVH),IDRVL=\$(IDRVL),JDRVH=\$(JDRVH),JDRVL=\$(JDRVL) }
+}
+
+file "wfstatsbase.db"
+{
+{ P=\$(P) }
+}
+
+file "wfstats.db"
+{
+{ P=\$(P),S=Drv,N=1000,TIME=\$(P)T:DAC-I }
+{ P=\$(P),S=Field,N=1000,TIME=\$(P)T:DAC-I }
+}
+

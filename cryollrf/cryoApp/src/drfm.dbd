@@ -1,0 +1,3 @@
+registrar(DRFMRegister)
+registrar(calcRegister)
+variable(cryoDebug,int)

@@ -1,0 +1,8 @@
+NAME=ln-llrf
+PORT=4054
+
+USER=softioc
+HOST=rfctrl01-vm
+
+CHDIR="$CHDIR/cryollrf/iocBoot/ioccryo"
+EXEC="$CHDIR/st.cmd"

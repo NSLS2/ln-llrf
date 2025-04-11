@@ -1,0 +1,172 @@
+#
+# waveform generator
+#
+# P - Record name prefix
+# PORT - asyn port name
+#
+# External Records
+# Inputs:
+#  $(TIME) - from drfm.db
+# Outputs:
+#  $(P)Amp-SP
+#  $(P)Pha-SP
+
+
+record(ao, "$(P)AmpCtrl-SP") {
+  field(PREC, "3")
+  field(DRVH, "$(ADRVH)")
+  field(DRVL, "0")
+  field(HOPR, "1")
+  field(LOPR, "0")
+  field(PINI, "YES")
+  field(ASG,  "RFEXPERT-LN")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "$(P)PhaCtrl-SP") {
+  field(PREC, "3")
+  field(DRVH, "180")
+  field(DRVL, "-180")
+  field(HOPR, "180")
+  field(LOPR, "-180")
+  field(EGU , "deg")
+  field(PINI, "YES")
+  info(autosaveFields_pass0, "VAL")
+}
+
+# Calculation parameters
+record(ao, "$(P)ValC-SP") {
+  field(PREC, "3")
+  field(PINI, "YES")
+  field(DOL , "$(P)AmpCtrl-SP CPP MSS")
+  field(OMSL, "closed_loop")
+  info(autosaveFields_pass0, "VAL OUT DOL OMSL")
+}
+record(ao, "$(P)ValD-SP") {
+  field(PREC, "3")
+  field(PINI, "YES")
+  field(DOL , "$(P)PhaCtrl-SP CPP MSS")
+  field(OMSL, "closed_loop")
+  info(autosaveFields_pass0, "VAL OUT DOL OMSL")
+}
+record(ao, "$(P)ValE-SP") {
+  field(PREC, "3")
+  field(PINI, "YES")
+  info(autosaveFields_pass0, "VAL OUT DOL OMSL")
+}
+record(ao, "$(P)ValF-SP") {
+  field(PREC, "3")
+  field(PINI, "YES")
+  info(autosaveFields_pass0, "VAL OUT DOL OMSL")
+}
+record(ao, "$(P)ValG-SP") {
+  field(PREC, "3")
+  field(PINI, "YES")
+  info(autosaveFields_pass0, "VAL OUT DOL OMSL")
+}
+record(ao, "$(P)ValH-SP") {
+  field(PREC, "3")
+  field(PINI, "YES")
+  info(autosaveFields_pass0, "VAL OUT DOL OMSL")
+}
+record(ao, "$(P)ValI-SP") {
+  field(PREC, "3")
+  field(PINI, "YES")
+  field(DRVH, "$(IDRVH)")
+  field(DRVL, "$(IDRVL)")
+  field(ASG,  "RFEXPERT-LN")
+  info(autosaveFields_pass0, "VAL OUT DOL OMSL")
+}
+record(ao, "$(P)ValJ-SP") {
+  field(PREC, "3")
+  field(PINI, "YES")
+  field(DRVH, "$(JDRVH)")
+  field(DRVL, "$(JDRVL)")
+  field(ASG,  "RFEXPERT-LN")
+  info(autosaveFields_pass0, "VAL OUT DOL OMSL")
+}
+
+# Expression for element wise
+# calculation of Amplitude and phase waveforms
+
+record(waveform, "$(P)AmpExpr-SP") {
+ field(FTVL, "CHAR")
+ field(NELM, "100")
+ #field(VAL, "(B<E||B>F)?0:C")
+ field(FLNK, "$(P)AmpExpr-Calc_")
+ field(PINI, "YES")
+ info(autosaveFields_pass1, "VAL")
+}
+
+record(waveform, "$(P)PhaExpr-SP") {
+ field(FTVL, "CHAR")
+ field(NELM, "100")
+ #field(VAL, "D+G")
+ field(FLNK, "$(P)PhaExpr-Calc_")
+ field(PINI, "YES")
+ info(autosaveFields_pass1, "VAL")
+}
+
+# Calculate amplitude
+
+record(aSub, "$(P)AmpExpr-Calc_") {
+ field(INAM, "WG Init")
+ field(SNAM, "WG Gen")
+ field(FTA , "CHAR")
+ field(NOA , "100")
+ field(FTB , "DOUBLE")
+ field(NOB , "1000")
+ field(FTC , "DOUBLE")
+ field(FTD , "DOUBLE")
+ field(FTE , "DOUBLE")
+ field(FTF , "DOUBLE")
+ field(FTG , "DOUBLE")
+ field(FTH , "DOUBLE")
+ field(FTI , "DOUBLE")
+ field(FTJ , "DOUBLE")
+ field(FTVA, "DOUBLE")
+ field(NOVA, "1000")
+ field(INPA, "$(P)AmpExpr-SP NPP MSS")
+ field(INPB, "$(TIME) CPP MSS")
+ field(INPC, "$(P)ValC-SP CPP MSS")
+ field(INPD, "$(P)ValD-SP CPP MSS")
+ field(INPE, "$(P)ValE-SP CPP MSS")
+ field(INPF, "$(P)ValF-SP CPP MSS")
+ field(INPG, "$(P)ValG-SP CPP MSS")
+ field(INPH, "$(P)ValH-SP CPP MSS")
+ field(INPI, "$(P)ValI-SP CPP MSS")
+ field(INPJ, "$(P)ValJ-SP CPP MSS")
+ field(OUTA, "$(P)Amp-SP PP MSS")
+}
+
+# Calculate phase
+
+record(aSub, "$(P)PhaExpr-Calc_") {
+ field(INAM, "WG Init")
+ field(SNAM, "WG Gen")
+ field(FTA , "CHAR")
+ field(NOA , "100")
+ field(FTB , "DOUBLE")
+ field(NOB , "1000")
+ field(FTC , "DOUBLE")
+ field(FTD , "DOUBLE")
+ field(FTE , "DOUBLE")
+ field(FTF , "DOUBLE")
+ field(FTG , "DOUBLE")
+ field(FTH , "DOUBLE")
+ field(FTI , "DOUBLE")
+ field(FTJ , "DOUBLE")
+ field(FTVA, "DOUBLE")
+ field(NOVA, "1000")
+ field(INPA, "$(P)PhaExpr-SP NPP MSS")
+ field(INPB, "$(TIME) CPP MSS")
+ field(INPC, "$(P)ValC-SP CPP MSS")
+ field(INPD, "$(P)ValD-SP CPP MSS")
+ field(INPE, "$(P)ValE-SP CPP MSS")
+ field(INPF, "$(P)ValF-SP CPP MSS")
+ field(INPG, "$(P)ValG-SP CPP MSS")
+ field(INPH, "$(P)ValH-SP CPP MSS")
+ field(INPI, "$(P)ValI-SP CPP MSS")
+ field(INPJ, "$(P)ValJ-SP CPP MSS")
+ field(OUTA, "$(P)Pha-SP PP MSS")
+}

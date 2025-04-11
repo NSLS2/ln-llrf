@@ -1,0 +1,11 @@
+EPICS4_DIR=${EPICS_BASE}/modules
+PVDATABASE=${EPICS4_DIR}/pvDatabase
+#PVASRV=${EPICS4_DIR}/pvaSrv
+PVACCESS=${EPICS4_DIR}/pvAccess
+NORMATIVETYPES=${EPICS4_DIR}/normativeTypes
+PVDATA=${EPICS4_DIR}/pvData
+#PVCOMMON=${EPICS4_DIR}/pvCommonCPP
+
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+EPICS_BASE=/epics/R7_0_9/base-7.0.9
+

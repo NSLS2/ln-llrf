@@ -1,0 +1,34 @@
+##### Extra Logic #####
+
+record(seq, "$(P)MO:AmpLim-Calc_") {
+  field(DOL1, "$(P)MO:AmpH-RB CP")
+  field(LNK1, "$(P)MO:Amp-I.HIGH PP")
+  field(DOL2, "$(P)MO:AmpL-RB CP")
+  field(LNK2, "$(P)MO:Amp-I.LOW PP")
+}
+
+record(seq, "$(P)T-Calc_") {
+  field(DOL1, "$(P)T:Lim-RB CP")
+  field(LNK1, "$(P)T-I.HIHI PP")
+  field(DOL2, "$(P)T:Warn-RB CP")
+  field(LNK2, "$(P)T-I.HIGH PP")
+}
+
+##### Record Overrides #####
+# All of the following record are already created
+
+record(ai, "$(P)MO:Amp-I") {
+  field(HSV, "MAJOR")
+  field(LSV, "MAJOR")
+}
+
+record(ai, "$(P)T-I") {
+  field(HSV, "MINOR")
+  field(HHSV, "MAJOR")
+  field(LOW, "1")
+  field(LSV, "INVALID")
+}
+
+record(bo, "$(P)Commit-Cmd") {
+  info(autosaveFields_pass0, "RVAL SCAN")
+}
