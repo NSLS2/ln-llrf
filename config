@@ -1,5 +1,5 @@
 NAME=ln-llrf
-PORT=4054
+PORT=4056
 
 USER=softioc
 HOST=rfctrl01-vm
