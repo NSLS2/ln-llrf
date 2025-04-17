@@ -27,17 +27,17 @@ MODULES = $(EPICS_BASE)/../modules/soft
 
 # If using the sequencer, point SNCSEQ at its top directory:
 SNCSEQ = $(MODULES)/seq-2.2.9
-CALC=$(MODULES)/calc-3-7-7
-SSCAN=$(MODULES)/sscan-R2-11-4
-DEVIOCSTATS=$(EPICS_BASE)/iocStats
-ASYN=$(MODULES)/asyn-R4-42
-AUTOSAVE=$(MODULES)/autosave-R5-10
-CAPUTLOG=$(MODULES)/caPutLog-3.6
+CALC=$(MODULES)/calc-R3-7-4
+SSCAN=$(MODULES)/sscan-R2-11-5
+DEVIOCSTATS=$(EPICS_BASE)/iocStats-R3-2-0
+ASYN=$(MODULES)/asyn-R4-45
+AUTOSAVE=$(MODULES)/autosave-R5-10-2
+CAPUTLOG=$(MODULES)/caPutLog-R4-0
 RECSYNC=$(MODULES)/recsync/client
-LIBEVENT=/home/jtagger/EPICS/R7_0_6_1/libevent
+LIBEVENT=/epics/R7_0_9/libevent
 
 # EPICS_BASE should appear last so earlier modules can override stuff:
-EPICS_BASE = /home/jtagger/EPICS/R7_0_6_1/base-7.0.6.1
+# Moved to RELEASE.local
 
 # Set RULES here if you want to use build rules from somewhere
 # other than EPICS_BASE:
