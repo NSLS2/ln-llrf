@@ -1,0 +1,11 @@
+record(bi, "$(NAME)") {
+  field(DESC, "$(DESC=$(PARAM))")
+  field(DTYP, "Param $(TYPE=UInt32)")
+  field(INP , "@$(TBL).$(PARAM)")
+  field(SCAN, "$(SCAN=I/O Intr)")
+  field(PINI, "$(PINI=RUN)")
+  field(ZNAM, "$(ZNAM=0)")
+  field(ONAM, "$(ONAM=1)")
+  field(ZSV,  "$(ZSV=)")
+  field(OSV,  "$(OSV=)")
+}

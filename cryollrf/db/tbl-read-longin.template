@@ -1,0 +1,18 @@
+record(longin, "$(NAME)") {
+  field(DESC, "$(DESC=$(PARAM))")
+  field(DTYP, "Param $(TYPE=UInt32)")
+  field(INP , "@$(TBL).$(PARAM)")
+  field(PINI, "$(PINI=RUN)")
+  field(SCAN, "$(SCAN=I/O Intr)")
+  field(EGU,  "$(EGU=)")
+  field(HOPR, "$(HOPR=)")
+  field(LOPR, "$(LOPR=)")
+  field(HIHI, "$(HIHI=)")
+  field(HIGH, "$(HIGH=$(HOPR=))")
+  field(LOW,  "$(LOW=$(LOPR=))")
+  field(LOLO, "$(LOLO=)")
+  field(HHSV, "$(HHSV=)")
+  field(HSV,  "$(HSV=)")
+  field(LSV,  "$(LSV=)")
+  field(LLSV, "$(LLSV=)")
+}
