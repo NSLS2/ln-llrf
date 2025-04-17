@@ -1,7 +1,0 @@
-record(stringin, "$(NAME)") {
-  field(DESC, "$(DESC=$(PARAM))")
-  field(DTYP, "Param $(TYPE=String)")
-  field(INP , "@$(TBL).$(PARAM)")
-  field(PINI, "$(PINI=RUN)")
-  field(SCAN, "$(SCAN=I/O Intr)")
-}
