@@ -1,0 +1,35 @@
+device(longin, INST_IO, devTblLIUInt32, "Param UInt32")
+device(longin, INST_IO, devTblLIInt32,  "Param Int32")
+device(longout,INST_IO, devTblLOUInt32, "Param UInt32")
+device(longout,INST_IO, devTblLOInt32,  "Param Int32")
+
+device(mbbi, INST_IO, devTblMBBIUInt32, "Param UInt32")
+device(mbbi, INST_IO, devTblMBBIInt32,  "Param Int32")
+device(mbbo, INST_IO, devTblMBBOUInt32, "Param UInt32")
+device(mbbo, INST_IO, devTblMBBOInt32,  "Param Int32")
+
+device(mbbiDirect, INST_IO, devTblMBBIDirectUInt32, "Param UInt32")
+device(mbbiDirect, INST_IO, devTblMBBIDirectInt32,  "Param Int32")
+device(mbboDirect, INST_IO, devTblMBBODirectUInt32, "Param UInt32")
+device(mbboDirect, INST_IO, devTblMBBODirectInt32,  "Param Int32")
+
+device(bi, INST_IO, devTblBIUInt32, "Param UInt32")
+device(bi, INST_IO, devTblBIInt32,  "Param Int32")
+device(bo, INST_IO, devTblBOUInt32, "Param UInt32")
+device(bo, INST_IO, devTblBOInt32,  "Param Int32")
+
+device(ai, INST_IO, devTblAIUInt32, "Param UInt32")
+device(ai, INST_IO, devTblAIInt32,  "Param Int32")
+device(ai, INST_IO, devTblAIFloat64,"Param Float64")
+device(ao, INST_IO, devTblAOUInt32, "Param UInt32")
+device(ao, INST_IO, devTblAOInt32,  "Param Int32")
+device(ao, INST_IO, devTblAOFloat64,"Param Float64")
+
+device(stringin, INST_IO, devTblSIString, "Param String")
+device(stringout,INST_IO, devTblSOString, "Param String")
+
+device(waveform, INST_IO, devTblWfIn, "Param Vector In")
+device(waveform, INST_IO, devTblWfOut,"Param Vector Out")
+
+registrar(paramtableRegister)
+driver(drvparamtable)

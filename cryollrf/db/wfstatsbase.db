@@ -1,0 +1,14 @@
+
+record(ao, "$(P)Window:Start-SP") {
+  field(DESC, "Start of measurement window")
+  field(EGU , "us")
+  field(PINI, "YES")
+  info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "$(P)Window:Width-SP") {
+  field(DESC, "Start of measurement window")
+  field(EGU , "us")
+  field(PINI, "YES")
+  info(autosaveFields_pass0, "VAL")
+}

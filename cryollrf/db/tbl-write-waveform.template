@@ -1,0 +1,23 @@
+record(waveform, "$(NAME)") {
+  field(DESC, "$(DESC=$(PARAM))")
+  field(DTYP, "Param $(IMPL=Vector) Out")
+  field(INP , "@$(TBL).$(PARAM)")
+  field(PINI, "$(PINI=YES)")
+  field(FTVL, "$(FTVL)")
+  field(NELM, "$(NELM)")
+  field(EGU,  "$(EGU=)")
+  field(PREC, "$(PREC=)")
+  info(autosaveFields_pass1, "$(PASS1=VAL)")
+}
+
+record(waveform, "$(RBNAME=$(NAME):RBV)") {
+  field(DESC, "$(DESC=$(PARAM))")
+  field(DTYP, "Param $(IMPL=Vector) In")
+  field(INP , "@$(TBL).$(PARAM)")
+  field(PINI, "$(PINI=RUN)")
+  field(SCAN, "$(SCAN=I/O Intr)")
+  field(FTVL, "$(FTVL)")
+  field(NELM, "$(NELM)")
+  field(EGU,  "$(EGU=)")
+  field(PREC, "$(PREC=)")
+}

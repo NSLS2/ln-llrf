@@ -1,0 +1,77 @@
+record(aSub, "$(P)$(S):Amp-Calc_") {
+  field(SNAM, "Wf Stats")
+  field(FTA , "DOUBLE")
+  field(FTB , "DOUBLE")
+  field(FTC , "DOUBLE")
+  field(FTD , "DOUBLE")
+  field(FTVA ,"DOUBLE")
+  field(FTVB ,"DOUBLE")
+  field(NOA , "$(N)")
+  field(NOB , "$(N)")
+  field(INPA, "$(P)$(S):Amp-I CPP MSS")
+  field(INPB, "$(TIME) CPP MSS")
+  field(INPC, "$(P)Window:Start-SP CPP MSS")
+  field(INPD, "$(P)Window:Width-SP CPP MSS")
+  field(OUTA, "$(P)$(S):AmpMean-I PP MSS")
+  field(OUTB, "$(P)$(S):AmpStd-I PP MSS")
+}
+
+record(ai, "$(P)$(S):AmpMean-I") {
+  field(PREC, "3")
+  field(ADEL, "0.001")
+}
+
+record(ai, "$(P)$(S):AmpStd-I") {
+  field(PREC, "4")
+  field(ADEL, "0.001")
+}
+
+
+# need unwrapped phase to calculate the average
+record(aSub, "$(P)$(S):PhaUnwrap-Calc_") {
+  field(SNAM, "Phase Unwrap")
+  field(FTA , "DOUBLE")
+  field(FTVA ,"DOUBLE")
+  field(NOA , "$(N)")
+  field(NOVA , "$(N)")
+  field(INPA, "$(P)$(S):Pha-I CPP MSS")
+  field(INPB, "5")
+  field(OUTA, "$(P)$(S):Pha-Calc_.A PP MSS")
+}
+
+record(aSub, "$(P)$(S):Pha-Calc_") {
+  field(SNAM, "Wf Stats")
+  field(FTA , "DOUBLE")
+  field(FTB , "DOUBLE")
+  field(FTC , "DOUBLE")
+  field(FTD , "DOUBLE")
+  field(FTVA ,"DOUBLE")
+  field(FTVB ,"DOUBLE")
+  field(NOA , "$(N)")
+  field(NOB , "$(N)")
+  ##field(INPA, "$(P)$(S):Pha-I MSS")
+  field(INPB, "$(TIME) MSS")
+  field(INPC, "$(P)Window:Start-SP CPP MSS")
+  field(INPD, "$(P)Window:Width-SP CPP MSS")
+  field(OUTA, "$(P)$(S):PhaMeanWrap-Calc_.A PP MSS")
+  field(OUTB, "$(P)$(S):PhaStd-I PP MSS")
+}
+
+# re-wrap the phase for display
+record(calcout, "$(P)$(S):PhaMeanWrap-Calc_") {
+  # Unfortunately the modulo operator '%' casts to integer first
+  field(CALC, "A>180?A-360:(A<-180?A+360:A)")
+  field(OUT , "$(P)$(S):PhaMean-I PP MSS")
+}
+
+record(ai, "$(P)$(S):PhaMean-I") {
+  field(PREC, "1")
+  field(ADEL, "1")
+  field(EGU , "deg")
+}
+
+record(ai, "$(P)$(S):PhaStd-I") {
+  field(PREC, "1")
+  field(ADEL, "1")
+  field(EGU , "deg")
+}

@@ -12,8 +12,10 @@ dbLoadDatabase "dbd/table.dbd"
 table_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
+#dbLoadRecords("db/xxx.db","user=jtagger")
 
 cd "${TOP}/iocBoot/${IOC}"
 iocInit
 
 ## Start any sequence programs
+#seq sncxxx,"user=jtagger"
