@@ -1,8 +1,8 @@
 NAME=ln-llrf
-PORT=4052
+PORT=4056
 
 USER=softioc
-HOST=linacioc04
+HOST=rfctrl01-vm
 
 CHDIR="$CHDIR/cryollrf/iocBoot/ioccryo"
 EXEC="$CHDIR/st.cmd"
