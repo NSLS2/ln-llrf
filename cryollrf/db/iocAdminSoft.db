@@ -808,96 +808,6 @@ record(calc, "$(IOC):SCANMON_SEVR") {
     field(INPF, "$(IOC):5HZ_UPD_TIME.SEVR MS")
     field(INPG, "$(IOC):10HZ_UPD_TIME.SEVR MS")
 }
-record(stringin, "$(IOC):CA_ADDR_LIST") {
-    field(DESC, "EPICS_CA_ADDR_LIST")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CA_ADDR_LIST")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CA_CONN_TIME") {
-    field(DESC, "EPICS_CA_CONN_TMO")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CA_CONN_TMO")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CA_AUTO_ADDR") {
-    field(DESC, "EPICS_CA_AUTO_ADDR_LIST")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CA_AUTO_ADDR_LIST")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CA_RPTR_PORT") {
-    field(DESC, "EPICS_CA_REPEATER_PORT")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CA_REPEATER_PORT")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CA_SRVR_PORT") {
-    field(DESC, "EPICS_CA_SERVER_PORT")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CA_SERVER_PORT")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CA_MAX_ARRAY") {
-    field(DESC, "EPICS_CA_MAX_ARRAY_BYTES")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CA_MAX_ARRAY_BYTES")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CA_SRCH_TIME") {
-    field(DESC, "EPICS_CA_MAX_SEARCH_PERIOD")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CA_MAX_SEARCH_PERIOD")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CA_BEAC_TIME") {
-    field(DESC, "EPICS_CA_BEACON_PERIOD")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CA_BEACON_PERIOD")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CAS_SRVR_PORT") {
-    field(DESC, "EPICS_CAS_SERVER_PORT")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CAS_SERVER_PORT")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CAS_AUTO_ADDR") {
-    field(DESC, "EPICS_CAS_AUTO_BEACON_ADDR_LIST")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CAS_AUTO_BEACON_ADDR_LIST")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CAS_ADDR_LIST") {
-    field(DESC, "EPICS_CAS_BEACON_ADDR_LIST")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CAS_BEACON_ADDR_LIST")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CAS_BEACON_PERIOD") {
-    field(DESC, "EPICS_CAS_BEACON_PERIOD")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CAS_BEACON_PERIOD")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CAS_BEACON_PORT") {
-    field(DESC, "EPICS_CAS_BEACON_PORT")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CAS_BEACON_PORT")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CAS_ADDR_INTF_LIST") {
-    field(DESC, "EPICS_CAS_INTF_ADDR_LIST")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CAS_INTF_ADDR_LIST")
-    field(PINI, "YES")
-}
-record(stringin, "$(IOC):CAS_ADDR_IGNORE_LIST") {
-    field(DESC, "EPICS_CAS_IGNORE_ADDR_LIST")
-    field(DTYP, "IOC epics var")
-    field(INP,  "@EPICS_CAS_IGNORE_ADDR_LIST")
-    field(PINI, "YES")
-}
 record(stringin, "$(IOC):TZ") {
     field(DESC, "EPICS_TZ")
     field(DTYP, "IOC epics var")
@@ -940,3 +850,143 @@ record(stringin, "$(IOC):ABORT_ON_ASSERT") {
     field(INP,  "@EPICS_ABORT_ON_ASSERT")
     field(PINI, "YES")
 }
+record(stringin, "$(IOC):CA_ADDR_LIST") {
+    field(DESC, "EPICS_CA_ADDR_LIST")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_ADDR_LIST")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_AUTO_ADDR_LIST") {
+    field(DESC, "EPICS_CA_AUTO_ADDR_LIST")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_AUTO_ADDR_LIST")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_NAME_SERVERS") {
+    field(DESC, "EPICS_CA_NAME_SERVERS")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_NAME_SERVERS")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_CONN_TMO") {
+    field(DESC, "EPICS_CA_CONN_TMO")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_CONN_TMO")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_REPEATER_PORT") {
+    field(DESC, "EPICS_CA_REPEATER_PORT")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_REPEATER_PORT")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_SERVER_PORT") {
+    field(DESC, "EPICS_CA_SERVER_PORT")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_SERVER_PORT")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_MAX_ARRAY_BYTES") {
+    field(DESC, "EPICS_CA_MAX_ARRAY_BYTES")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_MAX_ARRAY_BYTES")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_AUTO_ARRAY_BYTES") {
+    field(DESC, "EPICS_CA_AUTO_ARRAY_BYTES")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_AUTO_ARRAY_BYTES")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_BEACON_PERIOD") {
+    field(DESC, "EPICS_CA_BEACON_PERIOD")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_BEACON_PERIOD")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_MAX_SEARCH_PERIOD") {
+    field(DESC, "EPICS_CA_MAX_SEARCH_PERIOD")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_MAX_SEARCH_PERIOD")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CA_MCAST_TTL") {
+    field(DESC, "EPICS_CA_MCAST_TTL")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CA_MCAST_TTL")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CAS_BEACON_PERIOD") {
+    field(DESC, "EPICS_CAS_BEACON_PERIOD")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CAS_BEACON_PERIOD")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CAS_BEACON_PORT") {
+    field(DESC, "EPICS_CAS_BEACON_PORT")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CAS_BEACON_PORT")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CAS_AUTO_BEACON_ADDR_LIST") {
+    field(DESC, "EPICS_CAS_AUTO_BEACON_ADDR_LIST")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CAS_AUTO_BEACON_ADDR_LIST")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CAS_BEACON_ADDR_LIST") {
+    field(DESC, "EPICS_CAS_BEACON_ADDR_LIST")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CAS_BEACON_ADDR_LIST")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CAS_SERVER_PORT") {
+    field(DESC, "EPICS_CAS_SERVER_PORT")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CAS_SERVER_PORT")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CAS_INTF_ADDR_LIST") {
+    field(DESC, "EPICS_CAS_INTF_ADDR_LIST")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CAS_INTF_ADDR_LIST")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):CAS_IGNORE_ADDR_LIST") {
+    field(DESC, "EPICS_CAS_IGNORE_ADDR_LIST")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_CAS_IGNORE_ADDR_LIST")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):IOC_IGNORE_SERVERS") {
+    field(DESC, "EPICS_IOC_IGNORE_SERVERS")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_IOC_IGNORE_SERVERS")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):IOC_LOG_PORT") {
+    field(DESC, "EPICS_IOC_LOG_PORT")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_IOC_LOG_PORT")
+    field(PINI, "YES")
+}
+record(stringin, "$(IOC):ALLOW_POSIX_THREAD_PRIORITY_SCHEDULING") {
+    field(DESC, "EPICS_ALLOW_POSIX_THREAD_PRIORITY_SCHEDULING")
+    field(DTYP, "IOC epics var")
+    field(INP,  "@EPICS_ALLOW_POSIX_THREAD_PRIORITY_SCHEDULING")
+    field(PINI, "YES")
+}
+# These are deprecated aliases to maintain consistency with old record names
+
+alias("$(IOC):CA_CONN_TMO", "$(IOC):CA_CONN_TIME")
+alias("$(IOC):CA_AUTO_ADDR_LIST", "$(IOC):CA_AUTO_ADDR")
+alias("$(IOC):CA_REPEATER_PORT", "$(IOC):CA_RPTR_PORT")
+alias("$(IOC):CA_SERVER_PORT", "$(IOC):CA_SRVR_PORT")
+alias("$(IOC):CA_MAX_ARRAY_BYTES", "$(IOC):CA_MAX_ARRAY")
+alias("$(IOC):CA_MAX_SEARCH_PERIOD", "$(IOC):CA_SRCH_TIME")
+alias("$(IOC):CA_BEACON_PERIOD", "$(IOC):CA_BEAC_TIME")
+alias("$(IOC):CAS_SERVER_PORT", "$(IOC):CAS_SRVR_PORT")
+alias("$(IOC):CAS_AUTO_BEACON_ADDR_LIST", "$(IOC):CAS_AUTO_ADDR")
+alias("$(IOC):CAS_BEACON_ADDR_LIST", "$(IOC):CAS_ADDR_LIST")
+alias("$(IOC):CAS_INTF_ADDR_LIST", "$(IOC):CAS_ADDR_INTF_LIST")
+alias("$(IOC):CAS_IGNORE_ADDR_LIST", "$(IOC):CAS_ADDR_IGNORE_LIST")

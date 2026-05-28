@@ -26,15 +26,18 @@ MODULES = $(EPICS_BASE)/../modules/soft
 #MYMODULE = $(MODULES)/my-module
 
 # If using the sequencer, point SNCSEQ at its top directory:
-SNCSEQ = $(MODULES)/seq-2.2.9
-CALC=$(MODULES)/calc-R3-7-4
-SSCAN=$(MODULES)/sscan-R2-11-5
-DEVIOCSTATS=$(EPICS_BASE)/iocStats-R3-2-0
-ASYN=$(MODULES)/asyn-R4-45
-AUTOSAVE=$(MODULES)/autosave-R5-10-2
-CAPUTLOG=$(MODULES)/caPutLog-R4-0
+SNCSEQ = $(MODULES)/seq-2-2-9
+CALC=$(MODULES)/calc-3-7-5
+SSCAN=$(MODULES)/sscan-2-11-6
+DEVIOCSTATS=$(MODULES)/iocStats-4-0-0
+ASYN=$(MODULES)/asyn-4-46
+AUTOSAVE=$(MODULES)/autosave-6-0
+CAPUTLOG=$(MODULES)/caputlog-4-1
+STD=$(MODULES)/std-3-6-4
+STREAM=$(MODULES)/StreamDevice-2-8-26
 RECSYNC=$(MODULES)/recsync/client
-LIBEVENT=/epics/R7_0_9/libevent
+S7PLC=$(MODULES)/s7plc
+LIBEVENT=/epics/R7_0_10/libevent
 
 # EPICS_BASE should appear last so earlier modules can override stuff:
 # Moved to RELEASE.local

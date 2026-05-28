@@ -35,7 +35,7 @@ cryo_DBD += caPutLog.dbd
 cryo_LIBS += caPutLog
 endif
 
-cryo_LIBS += paramtable
+cryo_LIBS += paramtable pv pvDatabase qsrv pvaClient pvAccessIOC pvAccess pvAccessCA nt pvData
 
 # cryo_registerRecordDeviceDriver.cpp derives from cryo.dbd
 cryo_SRCS += cryo_registerRecordDeviceDriver.cpp
@@ -57,6 +57,14 @@ endif
 cryo_SYS_LIBS += event_core event_extra
 
 USR_LDFLAGS += -L$(LIBEVENT)/lib
+
+# Link QSRV (pvAccess Server) if available
+ifdef EPICS_QSRV_MAJOR_VERSION
+    cryo_LIBS += qsrv
+    cryo_LIBS += $(EPICS_BASE_PVA_CORE_LIBS)
+    cryo_DBD += PVAServerRegister.dbd
+    cryo_DBD += qsrv.dbd
+endif
 
 #event_core_DIR = $(LIBEVENT_$(T_A))/lib
 #event_extra_DIR = $(LIBEVENT_$(T_A))/lib

@@ -7,5 +7,5 @@ PVDATA=${EPICS4_DIR}/pvData
 #PVCOMMON=${EPICS4_DIR}/pvCommonCPP
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
-EPICS_BASE=/epics/R7_0_9/base-7.0.9
+EPICS_BASE=/epics/R7_0_10/base-7.0.10
 
